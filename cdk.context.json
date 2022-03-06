@@ -1,0 +1,30 @@
+{
+  "ami:account=117923233529:filters.image-type.0=machine:filters.name.0=*Windows_Server-2022-English-Full*:filters.platform.0=windows:filters.state.0=available:region=us-east-1": "ami-03b4d4e3313e8a08a",
+  "vpc-provider:account=117923233529:filter.vpc-id=vpc-0fec090b9337f6b9d:region=us-east-1:returnAsymmetricSubnets=true": {
+    "vpcId": "vpc-0fec090b9337f6b9d",
+    "vpcCidrBlock": "10.0.0.0/16",
+    "availabilityZones": [],
+    "subnetGroups": [
+      {
+        "name": "Public",
+        "type": "Public",
+        "subnets": [
+          {
+            "subnetId": "subnet-0af3af5bdfe0f8f84",
+            "cidr": "10.0.0.0/18",
+            "availabilityZone": "us-east-1a",
+            "routeTableId": "rtb-099acd30fd01b60a5"
+          }
+        ]
+      }
+    ]
+  },
+  "availability-zones:account=117923233529:region=us-east-1": [
+    "us-east-1a",
+    "us-east-1b",
+    "us-east-1c",
+    "us-east-1d",
+    "us-east-1e",
+    "us-east-1f"
+  ]
+}

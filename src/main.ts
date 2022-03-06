@@ -1,23 +1,39 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib';
+import { App, Stack, StackProps, aws_ec2 } from 'aws-cdk-lib';
+import * as skylight from 'cdk-skylight';
 import { Construct } from 'constructs';
-
-export class MyStack extends Stack {
-  constructor(scope: Construct, id: string, props: StackProps = {}) {
+import { constants } from './constants';
+export class AuthenticationComponent extends Stack {
+  readonly managedActiveDirectory: skylight.authentication.AdAuthentication;
+  constructor(
+    scope: Construct,
+    id: string,
+    ssmNamespace: string,
+    props: StackProps,
+    vpcID? : string,
+  ) {
     super(scope, id, props);
 
-    // define resources here...
+    const vpc = vpcID ? aws_ec2.Vpc.fromLookup(this, 'referenced-vpc', { vpcId: vpcID }) : new aws_ec2.Vpc(this, 'vpc', { maxAzs: 2 });
+
+    this.managedActiveDirectory = new skylight.authentication.AdAuthentication(
+      this,
+      'auth',
+      {
+        vpc: vpc,
+        domainName: 'skylight.aws',
+        ssmParameters: {
+          namespace: ssmNamespace,
+        },
+      },
+    );
+    this.managedActiveDirectory.createADGroup(
+      'WebAppHosts',
+      'WebApp Authorized Hosts Created by CDK');
   }
 }
 
-// for development, use account/region from cdk cli
-const devEnv = {
-  account: process.env.CDK_DEFAULT_ACCOUNT,
-  region: process.env.CDK_DEFAULT_REGION,
-};
-
 const app = new App();
 
-new MyStack(app, 'my-stack-dev', { env: devEnv });
-// new MyStack(app, 'my-stack-prod', { env: prodEnv });
+new AuthenticationComponent(app, 'auth-dev', constants.dev_ssmNamespace, { env: constants.testEnv });
 
 app.synth();

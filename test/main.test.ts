@@ -1,11 +1,12 @@
 import { App } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
-import { MyStack } from '../src/main';
-
-test('Snapshot', () => {
+import { constants } from '../src/constants';
+import { AuthenticationComponent } from '../src/main';
+test('AuthenticationComponent', () => {
   const app = new App();
-  const stack = new MyStack(app, 'test');
+  const stack = new AuthenticationComponent(app, 'auth-dev', constants.dev_ssmNamespace, { env: constants.testEnv });
 
-  const template = Template.fromStack(stack);
-  expect(template.toJSON()).toMatchSnapshot();
+  expect(stack).toHaveProperty(
+    'managedActiveDirectory.adObject.cfnResourceType',
+    'AWS::DirectoryService::MicrosoftAD',
+  );
 });
