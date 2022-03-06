@@ -12,8 +12,8 @@ export class AuthenticationPipeline extends Stack {
     const pipeline = new pipelines.CodePipeline(this, 'pipe', {
       pipelineName: 'authPipe',
       synth: new ShellStep('Synth', {
-        input: pipelines.CodePipelineSource.connection(constants.repoString, constants.repoBranch, {connectionArn: constants.gitHubConnectionArn}),
-        commands: ['npm ci', 'npm run build', 'npx cdk synth'],
+        input: pipelines.CodePipelineSource.connection(constants.repoString, constants.repoBranch, { connectionArn: constants.gitHubConnectionArn }),
+        commands: ['npm install', 'npm run build', 'npx cdk synth'],
       }),
     });
 
