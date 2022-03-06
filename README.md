@@ -2,7 +2,7 @@
 
 ![](https://img.shields.io/badge/Developer%20Preview-orange.svg?style=for-the-badge)
 
-An example of Stateful Active Directory Authentication layer implemented using AWS CDK. 
+An example of stateful Active Directory Authentication layer implemented using AWS CDK. 
 
 This example utilizes the [CDK-Skylight](https://github.com/cdklabs/cdk-skylight) [authentication library](https://github.com/cdklabs/cdk-skylight/blob/main/src/skylight-authentication/ad-authentication.ts) to follow the best practices of Managed AD and Route53 resolvers. 
 
