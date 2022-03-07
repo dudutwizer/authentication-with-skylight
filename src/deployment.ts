@@ -1,37 +1,47 @@
 import { aws_ec2, Stack, Stage, StageProps } from 'aws-cdk-lib';
 import * as skylight from 'cdk-skylight';
 import { Construct } from 'constructs';
+import { constants } from './constants';
 
-export interface IAuthenticationComponentProps extends StageProps{
+export interface IAuthenticationProps extends StageProps{
   ssmNamespace: string;
-  vpcID? : string;
+  vpcId? : string;
+  terminationProtection?: boolean,
 }
 
-export class AuthenticationComponent extends Stage {
-  readonly managedActiveDirectory: skylight.authentication.AdAuthentication;
+export class Authentication extends Stage {
+  readonly awsManagedMicrosoftAd: skylight.authentication.AwsManagedMicrosoftAd;
+  
   constructor(
     scope: Construct,
     id: string,
-    props: IAuthenticationComponentProps,
+    props: IAuthenticationProps,
   ) {
     super(scope, id, props);
 
-    const stateful = new Stack(this, 'Stateful', { terminationProtection: true });
+    // TODO: Check if terminationProtection available in CDK Pipelines
+    props.terminationProtection = props.terminationProtection ?? false;
+    const stateful = new Stack(this, 'Stateful', { terminationProtection:  props.terminationProtection });
 
-    const vpc = props.vpcID ? aws_ec2.Vpc.fromLookup(stateful, 'referenced-vpc', { vpcId: props.vpcID }) : new aws_ec2.Vpc(stateful, 'vpc', { maxAzs: 2 });
+    const vpc = props.vpcId ? aws_ec2.Vpc.fromLookup(stateful, 'Vpc', { vpcId: props.vpcId }) : new aws_ec2.Vpc(stateful, 'Vpc', { maxAzs: 2 });
 
-    this.managedActiveDirectory = new skylight.authentication.AdAuthentication(
+    this.awsManagedMicrosoftAd = new skylight.authentication.AwsManagedMicrosoftAd(
       stateful,
-      'auth',
+      'AwsManagedMicrosoftAd',
       {
         vpc: vpc,
-        domainName: 'skylight.aws',
+        domainName: constants.ACTIVE_DIRECTORY_DOMAIN_NAME,
+        // TODO: Rename ssmParameters to configurationStore/configurationNamespace or similar
+        // TODO: Implement "skylight.authentication.AwsManagedMicrosoftAd.getConfigurationObject(configurationStore, configurationNamespace)"
         ssmParameters: {
-          namespace: props.ssmNamespace,
+          namespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
         },
       },
     );
-    this.managedActiveDirectory.createADGroup(
+    
+
+    // Move this part to BL Application
+    this.awsManagedMicrosoftAd.createADGroup(
       'WebAppHosts',
       'WebApp Authorized Hosts Created by CDK');
   }
