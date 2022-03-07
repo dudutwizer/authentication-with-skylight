@@ -1,7 +1,7 @@
-import { App } from "aws-cdk-lib";
-import { constants } from "./constants";
-import { Authentication } from "./deployment";
-import { Toolchain } from "./toolchain";
+import { App } from 'aws-cdk-lib';
+import { constants } from './constants';
+import { Authentication } from './deployment';
+import { Toolchain } from './toolchain';
 
 const app = new App();
 

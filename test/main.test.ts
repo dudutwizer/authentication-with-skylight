@@ -1,16 +1,16 @@
 import { App } from 'aws-cdk-lib';
 import { constants } from '../src/constants';
-import { AuthenticationComponent } from '../src/deployment';
+import { Authentication } from '../src/deployment';
 test('AuthenticationComponent', () => {
   const app = new App();
-  const stack = new AuthenticationComponent(app, 'auth-dev-test', {
-    ssmNamespace: constants.dev_ssmNamespace,
-    vpcID: constants.dev_vpcID,
-    env: constants.testEnv,
+  const stack = new Authentication(app, 'auth-dev-test', {
+    ssmNamespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
+    vpcId: constants.PROD_VPC_ID,
+    env: constants.PROD_ENV,
   });
 
   expect(stack).toHaveProperty(
-    'managedActiveDirectory.adObject.cfnResourceType',
+    'awsManagedMicrosoftAd.adObject.cfnResourceType',
     'AWS::DirectoryService::MicrosoftAD',
   );
 });
