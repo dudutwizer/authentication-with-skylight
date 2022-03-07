@@ -37,13 +37,13 @@ export class Authentication extends Stage {
           ssmParameters: {
             namespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
           },
-        },
+        }
       );
 
     // Move this part to BL Application
     this.awsManagedMicrosoftAd.createADGroup(
       'WebAppHosts',
-      'WebApp Authorized Hosts Created by CDK',
+      'WebApp Authorized Hosts Created by CDK'
     );
   }
 }

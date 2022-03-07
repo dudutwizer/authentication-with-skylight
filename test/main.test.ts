@@ -11,6 +11,6 @@ test('AuthenticationComponent', () => {
 
   expect(stack).toHaveProperty(
     'awsManagedMicrosoftAd.adObject.cfnResourceType',
-    'AWS::DirectoryService::MicrosoftAD',
+    'AWS::DirectoryService::MicrosoftAD'
   );
 });

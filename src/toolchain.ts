@@ -14,7 +14,7 @@ export class Toolchain extends Stack {
         input: pipelines.CodePipelineSource.connection(
           `${constants.GITHUB_REPO_OWNER}/${constants.GITHUB_REPO_NAME}`,
           constants.GITHUB_REPO_BRANCH,
-          { connectionArn: constants.GITHUB_CONNECTION_ARN },
+          { connectionArn: constants.GITHUB_CONNECTION_ARN }
         ),
         commands: ['npm install', 'npm run build', 'npx cdk synth'],
       }),
@@ -29,7 +29,7 @@ export class Toolchain extends Stack {
         vpcId: constants.PROD_VPC_ID,
         terminationProtection: constants.PROD_TERMINATION_PROTECTION,
         env: constants.PROD_ENV,
-      },
+      }
     );
 
     codepipeline.addStage(authentication);
