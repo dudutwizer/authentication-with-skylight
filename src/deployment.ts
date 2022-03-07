@@ -39,11 +39,5 @@ export class Authentication extends Stage {
           },
         }
       );
-
-    // Move this part to BL Application
-    this.awsManagedMicrosoftAd.createADGroup(
-      'WebAppHosts',
-      'WebApp Authorized Hosts Created by CDK'
-    );
   }
 }
