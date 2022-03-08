@@ -1,5 +1,5 @@
 import { aws_ec2, Stack, Stage, StageProps } from 'aws-cdk-lib';
-import * as skylight from '../src';
+import * as skylight from 'cdk-skylight';
 import { Construct } from 'constructs';
 import { constants } from './constants';
 
