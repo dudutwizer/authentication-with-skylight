@@ -32,7 +32,7 @@ export class Authentication extends Stage {
           vpc: vpc,
           domainName: constants.ACTIVE_DIRECTORY_DOMAIN_NAME,
           createWorker: true,
-        }
+        },
       );
   }
 }

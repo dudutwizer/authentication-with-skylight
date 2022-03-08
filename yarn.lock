@@ -1288,10 +1288,10 @@ case@1.6.3, case@^1.6.3:
   resolved "https://registry.npmjs.org/case/-/case-1.6.3.tgz"
   integrity sha512-mzDSXIPaFwVDvZAHqZ9VlbyF4yyXRuX6IvB06WvPYkqJVO24kX1PPhv9bfpKNFZyxYFmmgo03HUiD8iklmJYRQ==
 
-cdk-skylight@^0.0.38:
-  version "0.0.38"
-  resolved "https://registry.yarnpkg.com/cdk-skylight/-/cdk-skylight-0.0.38.tgz#bdcfd56f18c917626138c322baa28ee23c91d3b1"
-  integrity sha512-4FZEi7MeCOVl00W3MCuuYH+C8sIuNFdrDWb63AsJuIuZKtUIkHlPdDKFUcrlW+ogyxIi0A82/WO5tq8DcpNAtg==
+cdk-skylight@^0.0.39:
+  version "0.0.39"
+  resolved "https://registry.yarnpkg.com/cdk-skylight/-/cdk-skylight-0.0.39.tgz#77a46f0e7b6ecda2a8f7cba32fd78f86c13d14e3"
+  integrity sha512-rGBHoW/Vj1nbwqUsoe2wENM6HJUaGakzt6jdqwLW325T5DSy4euJSRhonaCHROWrxHfnbOtLJJU/N0If7ut1bQ==
 
 chalk@^2.0.0:
   version "2.4.2"
