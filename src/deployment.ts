@@ -37,7 +37,7 @@ export class Authentication extends Stage {
           ssmParameters: {
             namespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
           },
-          createWorker: false,
+          createWorker: true,
         }
       );
   }
