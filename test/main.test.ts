@@ -4,7 +4,6 @@ import { Authentication } from '../src/deployment';
 test('AuthenticationComponent', () => {
   const app = new App();
   const stack = new Authentication(app, 'auth-dev-test', {
-    ssmNamespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
     vpcId: constants.PROD_VPC_ID,
     env: constants.PROD_ENV,
   });

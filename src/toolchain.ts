@@ -24,8 +24,6 @@ export class Toolchain extends Stack {
       this,
       `${constants.APP_NAME}-Prod`,
       {
-        // TODO: Rename ssmNamespace to configurationStore/configurationNamespace or similar
-        ssmNamespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
         vpcId: constants.PROD_VPC_ID,
         terminationProtection: constants.PROD_TERMINATION_PROTECTION,
         env: constants.PROD_ENV,

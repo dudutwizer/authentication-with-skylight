@@ -4,7 +4,6 @@ import { Construct } from 'constructs';
 import { constants } from './constants';
 
 export interface IAuthenticationProps extends StageProps {
-  ssmNamespace: string;
   vpcId?: string;
   terminationProtection?: boolean;
 }
@@ -32,11 +31,6 @@ export class Authentication extends Stage {
         {
           vpc: vpc,
           domainName: constants.ACTIVE_DIRECTORY_DOMAIN_NAME,
-          // TODO: Rename ssmParameters to configurationStore/configurationNamespace or similar
-          // TODO: Implement "skylight.authentication.AwsManagedMicrosoftAd.getConfigurationObject(configurationStore, configurationNamespace)"
-          ssmParameters: {
-            namespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
-          },
           createWorker: true,
         }
       );

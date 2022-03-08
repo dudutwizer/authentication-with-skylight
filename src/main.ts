@@ -8,7 +8,6 @@ const app = new App();
 // Development stage
 new Authentication(app, `${constants.APP_NAME}-Dev`, {
   // TODO: Rename ssmNamespace to configurationStore/configurationNamespace or similar
-  ssmNamespace: constants.PROD_SSM_PARAMETER_STORE_NAMESPACE,
   env: constants.DEV_ENV,
 });
 
