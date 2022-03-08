@@ -25,7 +25,6 @@ export class Toolchain extends Stack {
       `${constants.APP_NAME}-Prod`,
       {
         vpcId: constants.PROD_VPC_ID,
-        terminationProtection: constants.PROD_TERMINATION_PROTECTION,
         env: constants.PROD_ENV,
       },
     );

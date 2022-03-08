@@ -5,7 +5,6 @@ import { constants } from './constants';
 
 export interface IAuthenticationProps extends StageProps {
   vpcId?: string;
-  terminationProtection?: boolean;
 }
 
 export class Authentication extends Stage {
@@ -14,11 +13,7 @@ export class Authentication extends Stage {
   constructor(scope: Construct, id: string, props: IAuthenticationProps) {
     super(scope, id, props);
 
-    // TODO: Check if terminationProtection available in CDK Pipelines
-    props.terminationProtection = props.terminationProtection ?? false;
-    const stateful = new Stack(this, 'Stateful', {
-      terminationProtection: props.terminationProtection,
-    });
+    const stateful = new Stack(this, 'Stateful', {});
 
     const vpc = props.vpcId
       ? aws_ec2.Vpc.fromLookup(stateful, 'Vpc', { vpcId: props.vpcId })
@@ -32,7 +27,7 @@ export class Authentication extends Stage {
           vpc: vpc,
           domainName: constants.ACTIVE_DIRECTORY_DOMAIN_NAME,
           createWorker: true,
-        },
+        }
       );
   }
 }

@@ -23,5 +23,4 @@ export const constants = {
     region: 'us-east-1',
   },
   PROD_VPC_ID: 'vpc-08a1f9f43269a7e2f',
-  PROD_TERMINATION_PROTECTION: true,
 } as const;
