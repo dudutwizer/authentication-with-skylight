@@ -47,6 +47,7 @@
   },
   "dependencies": {
     "aws-cdk-lib": "^2.1.0",
+    "cdk-dia": "^0.6.1",
     "cdk-skylight": "^0.0.40",
     "constructs": "^10.0.5"
   },

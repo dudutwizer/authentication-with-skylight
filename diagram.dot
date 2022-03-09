@@ -1,0 +1,484 @@
+digraph "Diagram" {
+  splines = "ortho";
+  pad = "1.0";
+  nodesep = "0.60";
+  ranksep = "0.75";
+  fontname = "Sans-Serif";
+  fontsize = "15";
+  dpi = "200";
+  rankdir = "BT";
+  compound = "true";
+  fontcolor = "#222222";
+  edge [
+    color = "#D5871488",
+    penwidth = 2,
+    arrowhead = "dot",
+    arrowtail = "dot",
+  ];
+  node [
+    shape = "box",
+    style = "rounded",
+    fixedsize = true,
+    width = 1.7,
+    height = 1.7,
+    labelloc = "c",
+    imagescale = true,
+    fontname = "Sans-Serif",
+    fontsize = 8,
+    margin = 8,
+  ];
+  subgraph "App" {
+    subgraph "cluster-SubGraph.App" {
+      graph [
+        label = "App",
+        labelloc = "b",
+        labeljust = "l",
+        margin = "10",
+        fontsize = "16",
+        penwidth = "2",
+        pencolor = "#888888",
+        style = "filled,rounded",
+        fillcolor = "#f3f3f3",
+      ];
+      subgraph "cluster-SubGraph.Authentication-Dev" {
+        graph [
+          label = "Authentication-Dev",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        subgraph "cluster-SubGraph.Stateful" {
+          graph [
+            label = "Stateful",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "Authentication-Dev/Stateful/Vpc" [
+            label = " Vpc",
+            fontsize = 12,
+            image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Networking-Content/64/Arch_Amazon-Virtual-Private-Cloud_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 2,
+            height = 2.266,
+          ];
+          subgraph "cluster-SubGraph.AwsManagedMicrosoftAd" {
+            graph [
+              label = "AwsManagedMicrosoftAd",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#c7c7c7",
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/Secret" [
+              label = " Secret",
+              fontsize = 12,
+              image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Secrets-Manager_64@5x.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 1.2,
+              height = 1.466,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/mad-secretName-pointer" [
+              label = " mad secretName\npointer",
+              fontsize = 12,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+              label = " DIRECTORYSERVICE\nMICROSOFTAD",
+              fontsize = 12,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/mad-directoryID-pointer" [
+              label = " mad directoryID\npointer",
+              fontsize = 12,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/r53-outbound-resolver-SG" [
+              label = " r53 outbound\nresolver SG",
+              fontsize = 12,
+              image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/security_group.png",
+              imagescale = "true",
+              imagepos = "tc",
+              penwidth = "0",
+              shape = "node",
+              fixedsize = "true",
+              labelloc = "b",
+              width = 2,
+              height = 2.4819999999999998,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" [
+              label = " ROUTE53RESOLVER\nRESOLVERENDPOINT\nR53-Resolver-Endpoint",
+              fontsize = 12,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" [
+              label = " ROUTE53RESOLVER\nRESOLVERRULE\nR53-Resolve-Rule",
+              fontsize = 12,
+            ];
+            "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Association" [
+              label = " ROUTE53RESOLVER",
+              fontsize = 12,
+            ];
+            subgraph "cluster-SubGraph.madWorker" {
+              graph [
+                label = "madWorker",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#b9b9b9",
+              ];
+              "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" [
+                label = " iam-Role",
+                fontsize = 12,
+                image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.466,
+              ];
+              "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/SecurityGroup" [
+                label = " SecurityGroup",
+                fontsize = 12,
+                image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/security_group.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.266,
+              ];
+              "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" [
+                label = " Domain-Instance",
+                fontsize = 12,
+                image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Resource/Res_Compute/Res_48_Dark/Res_Amazon-EC2_T3-Instance_48_Dark.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.266,
+              ];
+              "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/ad-powershell" [
+                label = " SSM ASSOCIATION\nad-powershell",
+                fontsize = 12,
+              ];
+            }
+          }
+        }
+      }
+      subgraph "cluster-SubGraph.Authentication-Toolchain" {
+        graph [
+          label = "Authentication-Toolchain",
+          labelloc = "b",
+          labeljust = "l",
+          margin = "10",
+          fontsize = "16",
+          penwidth = "2",
+          pencolor = "#888888",
+          style = "filled,rounded",
+          fillcolor = "#e4e4e4",
+        ];
+        subgraph "cluster-SubGraph.CodePipeline" {
+          graph [
+            label = "CodePipeline",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          "Authentication-Toolchain/CodePipeline/Pipeline" [
+            label = " Pipeline",
+            fontsize = 12,
+            image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_AWS-CodePipeline_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+          "Authentication-Toolchain/CodePipeline/UpdatePipeline/SelfMutation" [
+            label = " SelfMutation",
+            fontsize = 12,
+            image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Developer- Tools/64/Arch_Amazon-CodeBuild_64@5x.png",
+            imagescale = "true",
+            imagepos = "tc",
+            penwidth = "0",
+            shape = "node",
+            fixedsize = "true",
+            labelloc = "b",
+            width = 1.2,
+            height = 1.466,
+          ];
+        }
+        subgraph "cluster-SubGraph.Authentication-Prod" {
+          graph [
+            label = "Authentication-Prod",
+            labelloc = "b",
+            labeljust = "l",
+            margin = "10",
+            fontsize = "16",
+            penwidth = "2",
+            pencolor = "#888888",
+            style = "filled,rounded",
+            fillcolor = "#d6d6d6",
+          ];
+          subgraph "cluster-SubGraph.Stateful" {
+            graph [
+              label = "Stateful",
+              labelloc = "b",
+              labeljust = "l",
+              margin = "10",
+              fontsize = "16",
+              penwidth = "2",
+              pencolor = "#888888",
+              style = "filled,rounded",
+              fillcolor = "#c7c7c7",
+            ];
+            subgraph "cluster-SubGraph.AwsManagedMicrosoftAd" {
+              graph [
+                label = "AwsManagedMicrosoftAd",
+                labelloc = "b",
+                labeljust = "l",
+                margin = "10",
+                fontsize = "16",
+                penwidth = "2",
+                pencolor = "#888888",
+                style = "filled,rounded",
+                fillcolor = "#b9b9b9",
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/Secret" [
+                label = " Secret",
+                fontsize = 12,
+                image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Secrets-Manager_64@5x.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 1.2,
+                height = 1.466,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/mad-secretName-pointer" [
+                label = " mad secretName\npointer",
+                fontsize = 12,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+                label = " DIRECTORYSERVICE\nMICROSOFTAD",
+                fontsize = 12,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/mad-directoryID-pointer" [
+                label = " mad directoryID\npointer",
+                fontsize = 12,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/r53-outbound-resolver-SG" [
+                label = " r53 outbound\nresolver SG",
+                fontsize = 12,
+                image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/security_group.png",
+                imagescale = "true",
+                imagepos = "tc",
+                penwidth = "0",
+                shape = "node",
+                fixedsize = "true",
+                labelloc = "b",
+                width = 2,
+                height = 2.4819999999999998,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" [
+                label = " ROUTE53RESOLVER\nRESOLVERENDPOINT\nR53-Resolver-Endpoint",
+                fontsize = 12,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" [
+                label = " ROUTE53RESOLVER\nRESOLVERRULE\nR53-Resolve-Rule",
+                fontsize = 12,
+              ];
+              "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Association" [
+                label = " ROUTE53RESOLVER",
+                fontsize = 12,
+              ];
+              subgraph "cluster-SubGraph.madWorker" {
+                graph [
+                  label = "madWorker",
+                  labelloc = "b",
+                  labeljust = "l",
+                  margin = "10",
+                  fontsize = "16",
+                  penwidth = "2",
+                  pencolor = "#888888",
+                  style = "filled,rounded",
+                  fillcolor = "#aaaaaa",
+                ];
+                "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" [
+                  label = " iam-Role",
+                  fontsize = 12,
+                  image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Service/Arch_Security-Identity-Compliance/64/Arch_AWS-Identity-and-Access-Management_64@5x.png",
+                  imagescale = "true",
+                  imagepos = "tc",
+                  penwidth = "0",
+                  shape = "node",
+                  fixedsize = "true",
+                  labelloc = "b",
+                  width = 1.2,
+                  height = 1.466,
+                ];
+                "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/SecurityGroup" [
+                  label = " SecurityGroup",
+                  fontsize = 12,
+                  image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/security_group.png",
+                  imagescale = "true",
+                  imagepos = "tc",
+                  penwidth = "0",
+                  shape = "node",
+                  fixedsize = "true",
+                  labelloc = "b",
+                  width = 2,
+                  height = 2.266,
+                ];
+                "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" [
+                  label = " Domain-Instance",
+                  fontsize = 12,
+                  image = "/Users/dudut/local_code/cdk-skylight-examples/authentication/node_modules/cdk-dia/icons/aws/Resource/Res_Compute/Res_48_Dark/Res_Amazon-EC2_T3-Instance_48_Dark.png",
+                  imagescale = "true",
+                  imagepos = "tc",
+                  penwidth = "0",
+                  shape = "node",
+                  fixedsize = "true",
+                  labelloc = "b",
+                  width = 2,
+                  height = 2.266,
+                ];
+                "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/ad-powershell" [
+                  label = " SSM ASSOCIATION\nad-powershell",
+                  fontsize = 12,
+                ];
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/mad-directoryID-pointer" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/r53-outbound-resolver-SG" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/r53-outbound-resolver-SG" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Association" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Association" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/SecurityGroup" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" -> "Authentication-Dev/Stateful/Vpc" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/SecurityGroup" [
+    dir = "both",
+  ];
+  "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/madWorker/ad-powershell" -> "Authentication-Dev/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/CodePipeline/Pipeline" -> "Authentication-Toolchain/CodePipeline/UpdatePipeline/SelfMutation" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/CodePipeline/UpdatePipeline/SelfMutation" -> "Authentication-Toolchain/CodePipeline/Pipeline" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/mad-directoryID-pointer" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/r53-outbound-resolver-SG" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Endpoint" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/AWS-Managed-Microsoft-AD" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolver-Association" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/R53-Resolve-Rule" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/iam-Role" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/Domain-Instance" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/SecurityGroup" [
+    dir = "both",
+  ];
+  "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/madWorker/ad-powershell" -> "Authentication-Toolchain/Authentication-Prod/Stateful/AwsManagedMicrosoftAd/Secret" [
+    dir = "both",
+  ];
+}

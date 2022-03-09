@@ -8,6 +8,8 @@ This example utilizes the [CDK-Skylight](https://github.com/cdklabs/cdk-skylight
 
 The example also contains recommended AWS CDK project structure for a realistic Infrastructure-As-Code component decoupled from other parts. It is also designed to be used with other components to deliver a business value (Aka Workload).
 
+![diagram.png](diagram.png) \* Diagram generated using https://github.com/pistazie/cdk-dia
+
 ## How to use
 
 Production use-case
