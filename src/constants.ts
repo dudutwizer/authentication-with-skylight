@@ -1,6 +1,6 @@
 export const constants = {
   APP_NAME: 'Authentication',
-  ACTIVE_DIRECTORY_DOMAIN_NAME: 'skylight.aws',
+  ACTIVE_DIRECTORY_DOMAIN_NAME: 'cdkskylight.aws',
 
   GITHUB_REPO_OWNER: 'dudutwizer',
   GITHUB_REPO_NAME: 'authentication-with-skylight',
